@@ -1,0 +1,15 @@
+this file contains the alias to use in iTerm.
+the file name is: .zshrc
+
+alias ll="ls -l"
+alias la="ls -la"
+alias cc="cc -Wall -Wextra -Werror"
+
+alias gs="git status"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gl="git log"
+
+alias francinette=/Users/dasalaza/francinette/tester.sh
+
+alias paco=/Users/dasalaza/francinette/tester.sh

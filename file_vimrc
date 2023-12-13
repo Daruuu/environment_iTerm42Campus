@@ -1,0 +1,99 @@
+this file stores the setup to use vim in iTerm.
+the file stores in this path: /.vim/vimrc
+
+also is necessary install bundle in this directory.
+
+content of vimrc:
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'pandark/42header.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'alexandregv/norminette-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'luochen1990/rainbow'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'itchyny/lightline.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'alvan/vim-closetag'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+" source %
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" enable mouse support
+set mouse=a
+set number
+" Habilitar la resaltado de sintaxis:
+syntax on
+set tabstop=4
+set softtabstop=4
+set autoindent
+set cursorline
+set textwidth=79
+" set nocompatible
+set ignorecase
+set smartcase
+" Habilitar el resaltado de búsqueda:
+set hlsearch
+" show the matching part iof pairs [] {} and ()
+set showmatch
+
+" disable conceal
+set conceallevel=1;
+
+" enable extension rainbow brackets
+"let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle"
+
+" Enable norminette-vim (and gcc)
+let g:syntastic_c_checkers = ['norminette', 'gcc']
+let g:syntastic_aggregate_errors = 1
+
+" Set the path to norminette (do no set if using norminette of 42 mac)
+let g:syntastic_c_norminette_exec = '~/.norminette/norminette.rb'
+" let g:syntastic_c_norminette_exec = '~/.local/lib/python3.10/site-packages/norminette'
+
+" Support headers (.h)
+let g:c_syntax_for_h = 1
+let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
+
+" Pass custom arguments to norminette (this one ignores 42header)
+let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+
+" Check errors when opening a file (disable to speed up startup time)
+let g:syntastic_check_on_open = 1
+
+" Enable error list
+let g:syntastic_always_populate_loc_list = 1
+
+" Automatically open error list
+let g:syntastic_auto_loc_list = 0
+
+" Skip check when closing
+let g:syntastic_check_on_wq = 0
+
+" enable extension smarter tab line
+let g:airline#extensions#tabline#enabled = 1
